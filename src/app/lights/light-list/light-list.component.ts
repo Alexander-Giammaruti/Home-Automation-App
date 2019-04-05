@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-light-list',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class LightListComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  onNewLight() {
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 }

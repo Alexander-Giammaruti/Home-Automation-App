@@ -8,6 +8,7 @@ import { LightStarterComponent } from './light-starter/light-starter.component';
 import { LightEditComponent } from './light-edit/light-edit.component';
 import { LightDetailComponent } from './light-detail/light-detail.component';
 import { LightsComponent } from './lights.component';
+import { LightsRoutingModule } from './lights-routing.module';
 
 //THE MODULE
 @NgModule({
@@ -20,7 +21,7 @@ import { LightsComponent } from './lights.component';
         LightDetailComponent,
     ],
     imports: [ 
-        
+        LightsRoutingModule
     ],
     exports: [
         LightsComponent,

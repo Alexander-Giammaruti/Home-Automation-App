@@ -3,10 +3,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
+import { LightsComponent } from './lights/lights.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
-    //{path: 'lights', loadChildren: './lights/lights.module#LightsModule'},
+    {path: 'lights', component: LightsComponent},
     //{path: 'electronics', loadChildren: './lights/electronics.module#ElectronicsModule'}
 ];
 

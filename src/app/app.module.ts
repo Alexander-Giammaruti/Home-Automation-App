@@ -14,8 +14,8 @@ import { LightsModule } from './lights/lights.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
     NgbAlertModule,
     CoreModule,

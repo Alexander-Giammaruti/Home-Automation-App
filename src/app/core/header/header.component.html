@@ -1,0 +1,22 @@
+<!--Base file for the header component. Currently non-functional-->
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/']" class="navbar-brand">My Application!</a>
+      </div>
+      <div class="navbar-default">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active"><a [routerLink]="['/']">Lights</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/']">Electronics</a></li>
+        </ul>
+          <ng-template>
+            <li routerLinkActive="active"><a [routerLink]="['/']">Log in</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/']">Sign up</a></li>
+          </ng-template>
+      </div>
+    </div>
+  </nav>
+
+
+

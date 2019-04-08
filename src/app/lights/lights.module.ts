@@ -24,8 +24,7 @@ import { LightsRoutingModule } from './lights-routing.module';
         LightsRoutingModule
     ],
     exports: [
-        LightsComponent,
-        LightItemComponent
+        
     ],
     providers: [
         

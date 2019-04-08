@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing-module';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CoreModule } from './core/core.module';
-import { LightsModule } from './lights/lights.module';
 
 
 @NgModule({
@@ -14,12 +13,12 @@ import { LightsModule } from './lights/lights.module';
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     NgbAlertModule,
-    CoreModule,
-    LightsModule
+    CoreModule,    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

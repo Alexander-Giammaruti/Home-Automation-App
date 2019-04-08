@@ -3,12 +3,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
-import { LightsComponent } from './lights/lights.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'lights', component: LightsComponent},
-    //{path: 'electronics', loadChildren: './lights/electronics.module#ElectronicsModule'}
+    {path: 'lights', loadChildren: './lights/lights.module#LightsModule'},
+    {path: 'security', loadChildren: './home-security/home-security.module#HomeSecurityModule'},
+    {path: 'entertainment', loadChildren: './home-entertainment/home-entertainment.module#HomeEntertainmentModule'},
+    {path: 'cleaning', loadChildren: './home-cleaning/home-cleaning.module#HomeCleaningModule'},
+    {path: 'kitchen', loadChildren: './kitchen/kitchen.module#KitchenModule'},
+    {path: 'outdoor', loadChildren: './outdoor/outdoor.module#OutdoorModule'},
+    {path: 'pets', loadChildren: './pets/pets.module#PetsModule'}
 ];
 
 @NgModule({

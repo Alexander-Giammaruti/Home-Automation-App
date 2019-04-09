@@ -11,9 +11,15 @@
             Save
           </button>
           <button mat-raised-button
-            color="warn"
+            color="secondary"
             (click)="onCancel()">
             Cancel
+          </button>
+          <button mat-raised-button
+            color="warn"
+            (click)="onDeleteLight()"
+            [disabled]="!editMode">
+            Delete
           </button>
         </div>
       </div>

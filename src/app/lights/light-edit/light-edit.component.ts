@@ -58,7 +58,16 @@ export class LightEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    if(this.editMode){
+      this.router.navigate(['lights']);
+    } else {
+      this.router.navigate(['../'], {relativeTo: this.route});
+    }
+  }
+
+  onDeleteLight() {
+    this.store.dispatch(new lightActions.DeleteLight(this.id));
+    this.router.navigate(['lights']);
   }
 
   

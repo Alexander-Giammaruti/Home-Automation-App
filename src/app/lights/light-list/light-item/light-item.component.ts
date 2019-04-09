@@ -26,7 +26,7 @@ export class LightItemComponent implements OnInit {
   }
 
   onEditLight() {
-    this.router.navigate([this.index, 'edit'], {relativeTo: this.route})
+    this.router.navigate([this.index, 'edit'], {relativeTo: this.route});
   }
 
 }

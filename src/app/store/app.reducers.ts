@@ -1,5 +1,6 @@
 // starter file to be populated once components are developed...
 
+
 import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {

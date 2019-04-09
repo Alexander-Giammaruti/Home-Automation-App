@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Light } from '../../light.model';
+import { FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-light-item',
@@ -6,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./light-item.component.css']
 })
 export class LightItemComponent implements OnInit {
+  @Input() light: Light;
+  @Input() index: number;
+  @Input() powered: boolean;
+  autoRenew = new FormControl();
+  
 
-  constructor() { }
+  constructor(
+      private router: Router,
+      private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.light.brightness = 1;
+    
+  }
+
+  onEditLight() {
+    this.router.navigate([this.index, 'edit'], {relativeTo: this.route})
   }
 
 }

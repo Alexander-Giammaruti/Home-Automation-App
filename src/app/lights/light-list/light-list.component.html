@@ -9,7 +9,8 @@
   <div class="col-xs-12">
     <!--code to display the list of items to go within this app-light-item tag-->
     <app-light-item
-      
-    ></app-light-item>
+      *ngFor="let LightElement of (lightState | async).lights; let i=index"
+      [light]="LightElement"
+      [index]="i"></app-light-item>
   </div>
 </div>

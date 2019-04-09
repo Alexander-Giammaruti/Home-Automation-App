@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
+import { Store, State } from '@ngrx/store';
+
+import * as fromLight from '../store/light.reducers'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-light-list',
@@ -8,11 +12,16 @@ import { Router, ActivatedRoute} from '@angular/router';
 })
 export class LightListComponent implements OnInit {
   
+  lightState: Observable<fromLight.State>;
+
 
   constructor(private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private store: Store<fromLight.FeatureState>) { }
 
   ngOnInit() {
+
+    this.lightState = this.store.select('lights');
   }
 
   onNewLight() {

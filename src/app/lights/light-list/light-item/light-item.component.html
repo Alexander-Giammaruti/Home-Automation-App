@@ -1,13 +1,42 @@
 <a 
 style="cursor: pointer;"
-[routerLink]="[index]"
-routerLinkActive="active"
-class="list-group-item clearfix">
+class="list-group-item clearfix"
+draggable="false">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{"Hypothetical Item name"}}</h4>
-    <p class="list-group-item-text">{{"Hypothetical Item description"}}</p>
+    <h4 class="list-group-item-heading">{{ light.name }}</h4>
+    <p class="list-group-item-text">{{ light.description }}</p>
+    <hr>
+    <div class="col-xs-2">
+      <label for="power">Power</label>
+      <mat-slide-toggle 
+        id="power"
+        name="power"
+        [formControl]="autoRenew"
+        (change)="powered = autoRenew.value"
+        ></mat-slide-toggle>
+    </div>
+    
+    <div class="col-xs-10">
+        <mat-slider
+          *ngIf="powered"
+          activated="activated"
+          name="brightness"
+          id="brightness"
+          thumbLabel tickInterval="1"
+          min="1"
+          max="10"
+          step="1"
+          value="1"
+          (input)="light.brightness = $event.value"
+          [value]="light.brigntness"></mat-slider>
+    </div>
+    
+    
+
   </div>
-  <span class="pull-right">
-    <!--Image to be placed here-->
-  </span>
+  <div class="pull-right">
+    <button mat-raised-button
+      color="accent"
+      (click)="onEditLight()">Edit Light</button>
+  </div>
 </a>

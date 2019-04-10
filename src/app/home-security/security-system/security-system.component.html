@@ -1,6 +1,6 @@
 <!-- Can't seem to get the name from the ngrx store.... hopefully I can figure that out later-->
 
-<h3>Sample Security System <-- placeholder {{(securityState | async)}}</h3>
+<h3>{{ securitySystem.name }}</h3>
 <div class="pull-left">
     <div class="row">
         <div class="col-xs-8">
@@ -10,13 +10,13 @@
                 <mat-slide-toggle
                   name="instantArm"
                   id="instantArm"
-                  ngModel>
+                  [(ngModel)]="securitySystem.armedState.settings.instantArm">
                   Instant Arm
                 </mat-slide-toggle>
                 <mat-slide-toggle
                   name="motionSensors"
                   id="motionSensors"
-                  ngModel>
+                  [(ngModel)]="securitySystem.armedState.settings.motionSensors">
                   MotionSensors
                 </mat-slide-toggle>
               </div>
@@ -29,7 +29,8 @@
     <div class="row">
       <div class="col-xs-4">
         <button mat-raised-button
-          color="primary">
+          color="primary"
+          type="submit">
           Arm
         </button>
         <button mat-raised-button
@@ -39,6 +40,7 @@
       </div>
     </div>
 
+    
 <hr>
 <div class="row">
   <div class="col-xs-6">

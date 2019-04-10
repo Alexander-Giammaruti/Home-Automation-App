@@ -8,6 +8,7 @@ import { LocksComponent } from './security-system/locks/locks.component';
 import { HomeSecurityComponent } from './home-security.component';
 import { CommonModule } from '@angular/common';
 import { WindowsComponent } from './security-system/windows/windows.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,8 @@ import { WindowsComponent } from './security-system/windows/windows.component';
     ],
     imports: [ 
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         HomeSecurityRoutingModule,
         MatButtonModule,
         MatSlideToggleModule

@@ -11,7 +11,7 @@ export class SecuritySystem {
         , isArmed: boolean}
   
 
-    constructor(name: string, armedState: {settings: {instantArm: false, motionSensors: false}, isArmed: boolean}, ){
+    constructor(name: string, armedState: {settings: {instantArm: boolean, motionSensors: boolean}, isArmed: boolean}, ){
         this.name = name;
         this.armedState = armedState;
     }

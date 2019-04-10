@@ -1,3 +1,51 @@
-<p>
-  security-system works!
-</p>
+<div class="pull-left">
+    <div class="row">
+        <div class="col-xs-8">
+          <form>
+            <div class="row">
+              <div class="col-xs-12">
+                <mat-slide-toggle
+                  name="instantArm"
+                  id="instantArm"
+                  formId="instantArm">
+                  Instant Arm
+                </mat-slide-toggle>
+                <mat-slide-toggle
+                  name="motionSensors"
+                  id="motionSensors"
+                  formId="motionSensors">
+                  MotionSensors
+                </mat-slide-toggle>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+</div>
+    <div class="row">
+      <div class="col-xs-4">
+        <button mat-raised-button
+          color="primary">
+          Arm
+        </button>
+        <button mat-raised-button
+          color="warn">
+          Panic!
+        </button>
+      </div>
+    </div>
+
+<hr>
+<div class="row">
+  <div class="col-xs-6">
+    <app-locks></app-locks>
+  </div>
+  <div class="vertical-line"></div>
+  
+  <div class="col-xs-6">
+    <app-windows></app-windows>
+  </div>
+</div>
+
+

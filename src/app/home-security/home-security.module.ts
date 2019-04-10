@@ -1,17 +1,26 @@
 import { NgModule } from '@angular/core';
+
+import { MatButtonModule, MatSlideToggleModule } from '@angular/material';
+
 import { SecuritySystemComponent } from './security-system/security-system.component';
 import { HomeSecurityRoutingModule } from './home-security.routing.module';
 import { LocksComponent } from './security-system/locks/locks.component';
 import { HomeSecurityComponent } from './home-security.component';
+import { CommonModule } from '@angular/common';
+import { WindowsComponent } from './security-system/windows/windows.component';
 
 @NgModule({
     declarations: [
         HomeSecurityComponent,
         SecuritySystemComponent,
-        LocksComponent
+        LocksComponent,
+        WindowsComponent
     ],
     imports: [ 
-        HomeSecurityRoutingModule
+        CommonModule,
+        HomeSecurityRoutingModule,
+        MatButtonModule,
+        MatSlideToggleModule
      ],
     exports: [
     ],

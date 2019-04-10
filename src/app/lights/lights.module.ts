@@ -27,7 +27,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ],
     imports: [ 
         CommonModule,
-        CommonModule,
         LightsRoutingModule,
         StoreModule.forFeature('lights', LightReducer),
         FormsModule,

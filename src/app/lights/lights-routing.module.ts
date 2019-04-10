@@ -4,7 +4,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { LightsComponent } from './lights.component';
 import { LightStarterComponent } from './light-starter/light-starter.component';
 import { LightEditComponent } from './light-edit/light-edit.component';
-import { LightDetailComponent } from './light-detail/light-detail.component';
 
 
 const lightsRoutes: Routes = [

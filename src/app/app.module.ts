@@ -11,21 +11,11 @@ import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import {reducers } from './store/app.reducers'
 import { GestureConfig } from '@angular/material';
-import { WindowListComponent } from './home-security/security-system/windows/window-list/window-list.component';
-import { WindowItemComponent } from './home-security/security-system/windows/window-list/window-item/window-item.component';
-import { WindowEditComponent } from './home-security/security-system/windows/window-edit/window-edit.component';
-import { LockListComponent } from './home-security/security-system/locks/lock-list/lock-list.component';
-import { LockItemComponent } from './home-security/security-system/locks/lock-list/lock-item/lock-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WindowListComponent,
-    WindowItemComponent,
-    WindowEditComponent,
-    LockListComponent,
-    LockItemComponent,
   ],
   imports: [
     BrowserModule,

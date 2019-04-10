@@ -1,3 +1,29 @@
-<p>
-  lock-item works!
-</p>
+<a 
+  style="cursor: pointer;"
+  class="list-group-item clearfix"
+  draggable="false">
+<div class="pull-left">
+  <h4 class="list-group-item-heading">{{ lock.name }}</h4>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <mat-slide-toggle
+        name="power"
+        [formControl]="locked">
+        Locked
+      </mat-slide-toggle>
+    </div>
+  </div>
+</div>
+<div class="pull-right">
+  <div class="row">
+    <div class="col-xs-12">
+      <button mat-raised-button
+        color="accent"
+        (click)="onEditLock()">
+        Edit Lock
+      </button>
+    </div>
+  </div>
+</div>
+</a>

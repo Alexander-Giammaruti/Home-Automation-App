@@ -1,3 +1,19 @@
-<p>
-  lock-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <button mat-raised-button
+      color="primary"
+      (click)="onNewLock()"
+      >
+      Add Lock
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <app-lock-item
+      *ngFor="let lockElement of (lockState | async).locks; let i = index;" 
+      [lock]="lockElement"
+      [index]="i"></app-lock-item>
+  </div>
+</div>

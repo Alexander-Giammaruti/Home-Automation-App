@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
-import { Store, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 import * as fromLight from '../store/light.reducers'
 import { Observable } from 'rxjs';

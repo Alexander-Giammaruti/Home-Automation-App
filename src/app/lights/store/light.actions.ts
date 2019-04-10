@@ -11,25 +11,25 @@ export const DELETE_LIGHT = 'DELETE_LIGHT';
 
 
 export class SetLights implements Action {
-    readonly type = 'SET_LIGHTS';
+    readonly type = SET_LIGHTS;
 
     constructor(public payload: Light[]) {}
 }
 
 export class AddLight implements Action {
-    readonly type = 'ADD_LIGHT';
+    readonly type = ADD_LIGHT;
 
     constructor(public payload: Light[]) {}
 }
 
 export class UpdateLight implements Action {
-    readonly type = 'UPDATE_LIGHT';
+    readonly type = UPDATE_LIGHT;
 
     constructor(public payload: {index: number, updatedLight: Light[]}) {}
 }
 
 export class DeleteLight implements Action {
-    readonly type = 'DELETE_LIGHT';
+    readonly type = DELETE_LIGHT;
 
     constructor(public payload: number) {}
 }

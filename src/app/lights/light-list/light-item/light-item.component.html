@@ -10,16 +10,15 @@ draggable="false">
     <div class="col-xs-2">
       <label for="power">Power</label>
       <mat-slide-toggle 
-        id="power"
+
         name="power"
-        [formControl]="autoRenew"
-        (change)="powered = autoRenew.value"
+        [formControl]="power"
         ></mat-slide-toggle>
     </div>
     
     <div class="col-xs-10">
         <mat-slider
-          *ngIf="powered"
+          *ngIf="power.value"
           activated="activated"
           name="brightness"
           id="brightness"

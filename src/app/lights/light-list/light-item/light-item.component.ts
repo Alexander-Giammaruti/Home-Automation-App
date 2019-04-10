@@ -11,8 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LightItemComponent implements OnInit {
   @Input() light: Light;
   @Input() index: number;
-  @Input() powered: boolean;
-  autoRenew = new FormControl();
+  
+  power = new FormControl;
   
 
   constructor(

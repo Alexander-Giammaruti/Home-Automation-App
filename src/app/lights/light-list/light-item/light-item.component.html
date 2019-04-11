@@ -6,11 +6,11 @@ draggable="false">
     <h4 class="list-group-item-heading">{{ light.name }}</h4>
     <p class="list-group-item-text">{{ light.description }}</p>
     <hr>
-    <!--Strange bug where when lower toggles on the list are clicked (not swiped) only the top is toggled-->
+    <!-- Strange bug where when lower toggles on the list are clicked (not swiped) only the top is toggled-->
+    <!-- Fixed the bug... giving an id to the power slide-toggle was the cause of the problem -->
     <div class="col-xs-2">
       <label for="power">Power</label>
       <mat-slide-toggle 
-
         name="power"
         [formControl]="power"
         ></mat-slide-toggle>

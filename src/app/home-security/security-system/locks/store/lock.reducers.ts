@@ -1,8 +1,8 @@
 
 import { Lock } from 'src/app/home-security/shared/lock.model';
 
-import * as fromApp from '../../../../store/app.reducers'
-import * as LockActions from './lock.actions'
+import * as fromApp from '../../../../store/app.reducers';
+import * as LockActions from './lock.actions';
 
 export interface FeatureState extends fromApp.AppState {}
 

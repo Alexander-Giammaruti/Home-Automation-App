@@ -1,3 +1,18 @@
-<p>
-  window-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <button mat-raised-button
+    color="primary"
+    (click)="onNewWindow()">
+    Add Window
+  </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <app-window-item
+      *ngFor="let windowElement of (windowState | async).windows; let i = index"
+      [window]="windowElement"
+      [index]="i"></app-window-item>
+  </div>
+</div>

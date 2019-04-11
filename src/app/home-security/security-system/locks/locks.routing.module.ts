@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { LocksComponent } from './locks.component';
 import { LockEditComponent } from './lock-edit/lock-edit.component';
 
 

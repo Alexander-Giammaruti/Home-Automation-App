@@ -16,8 +16,9 @@ import * as lightActions from '../store/light.actions';
 })
 export class LightEditComponent implements OnInit {
   id: number;
-  editMode = false;
   lightForm: FormGroup;
+
+  editMode = false;
 
   constructor(
       private route: ActivatedRoute,
@@ -35,7 +36,7 @@ export class LightEditComponent implements OnInit {
     )
   }
 
-  private initForm(){
+  private initForm() {
     let lightName = '';
     let lightDescription = '';
 

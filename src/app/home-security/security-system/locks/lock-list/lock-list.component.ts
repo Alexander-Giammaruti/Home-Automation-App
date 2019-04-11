@@ -24,8 +24,11 @@ export class LockListComponent implements OnInit {
     this.lockState = this.store.select('locks');
   }
 
-  onNewLock() {
-    this.router.navigate(['locks', 'new'], {relativeTo: this.route})
+  onLock() {
+    this.router.navigate(['security', 'locks', 'edit']);
   }
+
+
+  
 
 }

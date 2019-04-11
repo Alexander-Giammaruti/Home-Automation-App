@@ -5,7 +5,7 @@ import { HomeSecurityComponent } from './home-security.component';
 const HomeSecurityRoutes: Routes  = [
     {path: '', component: HomeSecurityComponent,
         children: [
-            
+            {path: ':id', component: HomeSecurityComponent}
         ]
     }
 ];

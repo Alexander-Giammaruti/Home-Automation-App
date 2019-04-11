@@ -43,7 +43,8 @@ export function LockReducer(state = initialState, action: LockActions.LockAction
             }
         case(LockActions.DELETE_LOCK):
             const oldLocks = [...state.locks];
-            oldLocks.splice[action.payload, 1];
+            oldLocks.splice(action.payload, 1);
+
             return{
                 ...state,
                 locks: oldLocks

@@ -32,7 +32,8 @@ import { WindowEditComponent } from './security-system/windows/window-edit/windo
         WindowsComponent,
         WindowListComponent,
         WindowItemComponent,
-        WindowEditComponent
+        WindowEditComponent,
+        
     ],
     imports: [ 
         CommonModule,

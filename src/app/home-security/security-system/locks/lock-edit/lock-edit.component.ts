@@ -19,6 +19,4 @@ export class LockEditComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
 }

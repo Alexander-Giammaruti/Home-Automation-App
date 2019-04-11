@@ -6,6 +6,7 @@ export const SET_LOCKS = 'SET_LOCKS';
 export const ADD_LOCK = 'ADD_LOCK';
 export const UPDATE_LOCK = 'UPDATE_LOCK';
 export const DELETE_LOCK = 'DELETE_LOCK';
+export const LOCK_LOCK = 'LOCK_LOCK';
 
 export class SetLocks implements Action {
     readonly type = SET_LOCKS;
@@ -31,8 +32,14 @@ export class DeleteLock implements Action {
     constructor(public payload: number) {}
 }
 
+export class LockLock implements Action {
+    readonly type = LOCK_LOCK;
+
+    constructor(public payload: number) {}
+}
 export type LockActions = 
     SetLocks |
     AddLock |
     UpdateLock |
-    DeleteLock;
+    DeleteLock |
+    LockLock;

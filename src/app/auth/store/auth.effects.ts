@@ -9,6 +9,7 @@ import * as AuthActions from './auth.actions';
 
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import { EmailValidator } from '@angular/forms';
 
 
 
@@ -39,8 +40,39 @@ export class AuthEffects {
                 }
             ];
         }));
+    
+    @Effect()
+    authSignin = this.actions$
+        .pipe(ofType(AuthActions.TRY_SIGNIN))
+        .pipe(map((action: AuthActions.TrySignin) => {
+            return action.payload;
+        }))
+        .pipe(switchMap((authData: {email: string, password: string}) => {
+            return from(firebase.auth().signInWithEmailAndPassword(authData.email, authData.password));
+        }))
+        .pipe(switchMap(() => {
+            return from(firebase.auth().currentUser.getIdToken());
+        }))
+        .pipe(mergeMap((token: string) => {
+            this.router.navigate(['/']);
+            return [
+                {
+                    type: AuthActions.SIGNIN
+                },
+                {
+                    type: AuthActions.SET_TOKEN,
+                    payload: token
+                }
+            ]
+        }));
 
-        
+        @Effect({dispatch: false})
+        authLogout = this.actions$
+            .pipe(ofType(AuthActions.LOGOUT))
+            .pipe(tap(() => {
+                this.router.navigate(['/']);
+            }));
+
     constructor(
         private actions$: Actions,
         private router: Router

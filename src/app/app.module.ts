@@ -11,6 +11,8 @@ import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import {reducers } from './store/app.reducers'
 import { GestureConfig } from '@angular/material';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { GestureConfig } from '@angular/material';
     HttpClientModule,
     NgbAlertModule,
     CoreModule,    
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
     
   ],
   providers: [

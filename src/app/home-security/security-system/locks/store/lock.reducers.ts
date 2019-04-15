@@ -53,7 +53,6 @@ export function LockReducer(state = initialState, action: LockActions.LockAction
             state.locks[action.payload].lockedState = !state.locks[action.payload].lockedState
             return{
                 ...state
-                
             }
         default:
             return state;

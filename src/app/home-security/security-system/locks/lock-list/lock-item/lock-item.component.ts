@@ -29,7 +29,6 @@ export class LockItemComponent implements OnInit {
   onLock() {
     this.lock.lockedState = this.locked;
     this.store.dispatch(new LockActions.LockLock(this.index));
-    console.log(this.lock.name + ': ' +this.lock.lockedState);
   }
 
 

@@ -16,9 +16,14 @@
           <li routerLinkActive="active"><a [routerLink]="['pets']">Pets</a></li>
 
         </ul>
-        <ul class="nav navbar-nav navbar-right">          
-                <li routerLinkActive="active"><a [routerLink]="['login']">Log in</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['signup']">Sign up</a></li>
+        <ul class="nav navbar-nav navbar-right">
+          <ng-template [ngIf]="!(isAuthenticated | async).authenticated">
+              <li routerLinkActive="active"><a [routerLink]="['login']">Log in</a></li>
+              <li routerLinkActive="active"><a [routerLink]="['signup']">Sign up</a></li>
+          </ng-template>
+          <li><a style="cursor: pointer;" (click)="onLogout()" *ngIf="(isAuthenticated | async).authenticated">Logout</a></li>
+                 
+                
         </ul>
           
       </div>

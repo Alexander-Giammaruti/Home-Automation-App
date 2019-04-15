@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing-module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -9,6 +10,7 @@ import { AppRoutingModule } from '../app-routing-module';
         HomeComponent
     ],
     imports: [
+        CommonModule,
         AppRoutingModule
     ],
     exports: [

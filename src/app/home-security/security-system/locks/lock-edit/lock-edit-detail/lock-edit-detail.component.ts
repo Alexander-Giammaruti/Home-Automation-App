@@ -5,8 +5,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 
-import * as fromLock from '../../store/lock.reducers';
-import * as LockActions from '../../store/lock.actions';
+import * as fromSecuritySystem from '../../../store/security-system.reducers';
+import * as SecuritySystemActions from '../../../store/security-system.actions';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -25,7 +25,7 @@ export class LockEditDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private store: Store<fromLock.FeatureState>
+    private store: Store<fromSecuritySystem.FeatureState>
   ) { }
 
   ngOnInit() {
@@ -43,9 +43,9 @@ export class LockEditDetailComponent implements OnInit {
 
     if(this.editMode) {
 
-      this.store.select('locks')
+      this.store.select('security-system')
         .pipe(take(1))
-        .subscribe((lockState: fromLock.State) => {
+        .subscribe((lockState: fromSecuritySystem.State) => {
           const lock = lockState.locks[this.id];
           this.lockName = lock.name;
         })
@@ -61,16 +61,16 @@ export class LockEditDetailComponent implements OnInit {
   }
 
   onDeleteLock() {
-    this.store.dispatch(new LockActions.DeleteLock(this.id));
+    this.store.dispatch(new SecuritySystemActions.DeleteLock(this.id));
     this.router.navigate(['security', 'locks', 'edit']);
   }
 
   onSubmit() {
     if(this.editMode){
-      this.store.dispatch(new LockActions.UpdateLock(
+      this.store.dispatch(new SecuritySystemActions.UpdateLock(
         {index: this.id, updatedLock: this.lockForm.value}));
     } else {
-      this.store.dispatch(new LockActions.AddLock(this.lockForm.value));
+      this.store.dispatch(new SecuritySystemActions.AddLock(this.lockForm.value));
     }
     this.onCancel();
   }

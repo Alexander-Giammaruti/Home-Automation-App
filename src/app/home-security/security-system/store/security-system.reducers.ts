@@ -22,7 +22,7 @@ const initialState: State = {
     ]
 }
 
-export function LockReducer(state = initialState, action: SecuritySystemActions.SecuritySystemActions) {
+export function SecuritySystemReducer(state = initialState, action: SecuritySystemActions.SecuritySystemActions) {
     switch(action.type) {
         case(SecuritySystemActions.SET_LOCKS):
             return{

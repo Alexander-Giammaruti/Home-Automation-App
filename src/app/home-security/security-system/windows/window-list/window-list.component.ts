@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as fromWindow from '../store/window.reducers'
+import * as fromSecuritySystem from '../../store/security-system.reducers'
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -11,16 +11,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class WindowListComponent implements OnInit {
 
-  windowState: Observable<fromWindow.State>
+  windowState: Observable<fromSecuritySystem.State>
 
   constructor(
-    private store: Store<fromWindow.FeatureState>,
+    private store: Store<fromSecuritySystem.FeatureState>,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.windowState = this.store.select('windows');
+    this.windowState = this.store.select('security-system');
   }
 
   onNewWindow(){

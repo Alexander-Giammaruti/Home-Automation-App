@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 import { Lock } from 'src/app/home-security/shared/lock.model';
 import { Store } from '@ngrx/store';
 
-import * as fromLock from '../../store/lock.reducers';
-import * as LockActions from '../../store/lock.actions';
+import * as fromSecuritySystem from '../../../store/security-system.reducers';
+import * as SecuritySystemActions from '../../../store/security-system.actions';
 
 @Component({
   selector: 'app-lock-item',
@@ -23,12 +22,12 @@ export class LockItemComponent implements OnInit {
   }
 
   constructor(
-    private store: Store<fromLock.FeatureState>
+    private store: Store<fromSecuritySystem.FeatureState>
   ) {}
 
   onLock() {
     this.lock.lockedState = this.locked;
-    this.store.dispatch(new LockActions.LockLock(this.index));
+    this.store.dispatch(new SecuritySystemActions.LockLock(this.index));
   }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as fromLock from '../store/lock.reducers'
+import * as fromSecuritySystem from '../../store/security-system.reducers'
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -12,16 +12,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LockListComponent implements OnInit {
 
-  lockState: Observable<fromLock.State>;
+  lockState: Observable<fromSecuritySystem.State>;
 
   constructor(
-    private store: Store<fromLock.FeatureState>,
+    private store: Store<fromSecuritySystem.FeatureState>,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.lockState = this.store.select('locks');
+    this.lockState = this.store.select('security-system');
   }
 
   onLock() {

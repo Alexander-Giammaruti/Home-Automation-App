@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import * as AuthActions from '../../auth/store/auth.actions';
+import * as LightActions from '../../lights/store/light.actions';
 
 
 
@@ -25,6 +26,14 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.store.dispatch(new AuthActions.Logout());
+  }
+
+  onSaveData() {
+    this.store.dispatch(new LightActions.StoreLights());
+  }
+
+  onFetchData() {
+    this.store.dispatch(new LightActions.GetLights());
   }
 
 

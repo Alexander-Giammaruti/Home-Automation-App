@@ -9,7 +9,6 @@ import * as AuthActions from './auth.actions';
 
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { EmailValidator } from '@angular/forms';
 
 
 
@@ -37,6 +36,10 @@ export class AuthEffects {
                 {
                     type: AuthActions.SET_TOKEN,
                     payload: token
+                },
+                {
+                    type: AuthActions.SET_UID,
+                    payload: firebase.auth().currentUser
                 }
             ];
         }));
@@ -62,6 +65,10 @@ export class AuthEffects {
                 {
                     type: AuthActions.SET_TOKEN,
                     payload: token
+                },
+                {
+                    type: AuthActions.SET_UID,
+                    payload: firebase.auth().currentUser
                 }
             ]
         }));

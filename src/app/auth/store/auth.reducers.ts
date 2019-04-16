@@ -1,13 +1,18 @@
 import * as AuthActions from './auth.actions';
 
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
 export interface State {
-    token: string,
+    token: string;
     authenticated: boolean;
+    userId: string;
 }
 
 const initialState: State = {
     token: null,
-    authenticated: false
+    authenticated: false,
+    userId: null
 };
 
 export function AuthReducer(state = initialState, action: AuthActions.AuthActions) {
@@ -31,6 +36,12 @@ export function AuthReducer(state = initialState, action: AuthActions.AuthAction
                 ...state,
                 token: action.payload
             };
+
+        case(AuthActions.SET_UID):
+            return {
+                ...state,
+                userId: action.payload
+            }
 
         default:
             return state;

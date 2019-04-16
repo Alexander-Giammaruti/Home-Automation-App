@@ -12,6 +12,7 @@
     <app-light-item
       *ngFor="let LightElement of (lightState | async).lights; let i=index"
       [light]="LightElement"
-      [index]="i"></app-light-item>
+      [index]="i">
+    </app-light-item>
   </div>
 </div>

@@ -3,7 +3,6 @@ import * as fromApp from '../../store/app.reducers'
 import * as LightActions from './light.actions'
 
 import { Light } from '../light.model';
-import { state } from '@angular/animations';
 
 export interface FeatureState extends fromApp.AppState {}
     

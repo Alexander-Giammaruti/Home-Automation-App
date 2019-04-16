@@ -14,6 +14,8 @@ import { StoreModule } from '@ngrx/store';
 import { LightReducer } from './store/light.reducers'
 import { MatSliderModule, MatButtonModule, MatSlideToggleModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { LightEffects } from './store/light.effects';
 
 //THE MODULE
 @NgModule({
@@ -29,6 +31,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
         CommonModule,
         LightsRoutingModule,
         StoreModule.forFeature('lights', LightReducer),
+        EffectsModule.forFeature([LightEffects]),
         FormsModule,
         ReactiveFormsModule,
         MatSliderModule,

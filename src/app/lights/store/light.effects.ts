@@ -23,7 +23,7 @@ export class LightEffects {
     lightGet = this.actions$
     .pipe(ofType(LightActions.GET_LIGHTS))
     .pipe(switchMap((action: LightActions.GetLights) => {
-        return this.http.get<Light[]>('https://ng-home-automation.firebaseio.com/'+ firebase.auth().currentUser.uid  + '/lights.json', {
+        return this.http.get<Light[]>('https://ng-home-automation.firebaseio.com/lights/' + firebase.auth().currentUser.uid  + '.json', {
             observe: 'body',
             responseType: 'json'
         })
@@ -41,7 +41,7 @@ export class LightEffects {
         .pipe(ofType(LightActions.STORE_LIGHTS))
         .pipe(withLatestFrom(this.store.select('lights')))
         .pipe(switchMap(([action, state]) => {
-            const req = new HttpRequest('PUT', 'https://ng-home-automation.firebaseio.com/' + firebase.auth().currentUser.uid + '/lights.json', state.lights, {
+            const req = new HttpRequest('PUT', 'https://ng-home-automation.firebaseio.com/lights/' + firebase.auth().currentUser.uid + '.json', state.lights, {
                reportProgress: true 
             })
             return this.http.request(req);

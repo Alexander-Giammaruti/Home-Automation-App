@@ -5,7 +5,7 @@ import { MyWindow } from 'src/app/home-security/shared/window.model';
 export const SET_WINDOWS = 'SET_WINDOWS';
 export const ADD_WINDOW = 'ADD_WINDOW';
 export const UPDATE_WINDOW = 'UPDATE_WINDOW';
-export const DELETE_WINDOW = 'DELETE_LOCK';
+export const DELETE_WINDOW = 'DELETE_WINDOW';
 
 export class SetWindows implements Action {
     readonly type = SET_WINDOWS;

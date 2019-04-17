@@ -7,11 +7,23 @@ import * as SecuritySystemActions from '../store/security-system.actions';
 export interface FeatureState extends fromApp.AppState {}
 
 export interface State {
+    name: string;
+    alarmSettings: {
+        armed: boolean,
+        instantArm: boolean,
+        motionSensors: boolean
+    };
     locks: Lock[];
     windows: MyWindow[];
 }
 
 const initialState: State = {
+    name: "Sample Security System",
+    alarmSettings: {
+        armed: false,
+        instantArm: false,
+        motionSensors: false
+    },
     locks: [
         new Lock('A sample lock', false, null),
         new Lock('A second sample lock', true, null)
@@ -24,6 +36,15 @@ const initialState: State = {
 
 export function SecuritySystemReducer(state = initialState, action: SecuritySystemActions.SecuritySystemActions) {
     switch(action.type) {
+        case(SecuritySystemActions.ARM_SYSTEM):
+            return{
+                ...state,
+                armed: true,
+                alarmSettings: {
+                    instantArm: action.payload.instantArm,
+                    motionSensors: action.payload.motionSensors
+                }
+            }
         case(SecuritySystemActions.SET_LOCKS):
             return{
                 ...state,

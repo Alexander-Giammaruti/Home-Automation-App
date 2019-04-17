@@ -114,6 +114,11 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
                 ...state,
                 windows: oldWindows
             }
+        case(SecuritySystemActions.LOCK_WINDOW):
+            state.windows[action.payload].lockedState = !state.windows[action.payload].lockedState
+            return{
+                ...state
+            }
         default:
             return state;
     }

@@ -1,25 +1,24 @@
 <a
-[routerLink]="[index]"
-  style="cursor: pointer;"
+  [routerLink]="[index]"
   class="list-group-item clearfix"
   draggable="false">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ window.name }}</h4>
-    <hr>
-    <div class="row">
-      <div class="col-xs-12">
-        <mat-slide-toggle
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="list-group-item-heading">{{ window.name }}</h4>
+      <hr>
+    </div>
+  </div>
+<div class="pull-left">
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <mat-slide-toggle
         name="locked"
-        (change)="onLock()">
-          Locked
-        </mat-slide-toggle>
-      </div>
+        (change)="onLock()"
+        [checked]="locked">
+        Locked
+      </mat-slide-toggle>
     </div>
   </div>
-  <div class="pull-right">
-    <div class="row">
-      <div class="col-xs-12">
-      </div>
-    </div>
-  </div>
+</div>
 </a>

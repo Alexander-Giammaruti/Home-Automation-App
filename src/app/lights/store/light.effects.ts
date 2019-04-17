@@ -13,7 +13,6 @@ import { Light } from '../light.model';
 
 import * as fromLight from './light.reducers';
 import * as LightActions from './light.actions';
-import * as fromAuth from '../../auth/store/auth.reducers';
 
 
 
@@ -50,7 +49,7 @@ export class LightEffects {
     constructor(
         private actions$: Actions,
         private http: HttpClient,
-        private store: Store<fromLight.FeatureState>,
+        private store: Store<fromLight.FeatureState>
     ) {}
 }
 

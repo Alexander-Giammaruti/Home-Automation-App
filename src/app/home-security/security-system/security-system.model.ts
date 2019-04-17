@@ -8,7 +8,10 @@ export class SecuritySystem {
             instantArm: boolean, 
             motionSensors: boolean
         }
-        , isArmed: boolean}
+        , isArmed: boolean
+    }
+    locks: Lock[];
+    windows: MyWindow[];
   
 
     constructor(name: string, armedState: {settings: {instantArm: boolean, motionSensors: boolean}, isArmed: boolean}, ){

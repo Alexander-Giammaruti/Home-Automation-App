@@ -45,6 +45,11 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
                     motionSensors: action.payload.motionSensors
                 }
             }
+        case(SecuritySystemActions.SET_SYSTEM): 
+            return {
+                ...state,
+                ...action.payload
+            }
         case(SecuritySystemActions.SET_LOCKS):
             return{
                 ...state,

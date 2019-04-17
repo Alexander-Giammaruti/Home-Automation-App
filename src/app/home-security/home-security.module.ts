@@ -19,6 +19,8 @@ import { WindowItemComponent } from './security-system/windows/window-list/windo
 import { WindowsRoutingModule } from './security-system/windows/windows.routing.module';
 import { WindowEditComponent } from './security-system/windows/window-edit/window-edit.component';
 import { SecuritySystemReducer } from './security-system/store/security-system.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { SecuritySystemEffects } from './security-system/store/security-system.effects';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,8 @@ import { SecuritySystemReducer } from './security-system/store/security-system.r
         CommonModule,
         LocksRoutingModule,
         WindowsRoutingModule,
-        StoreModule.forFeature('security-system', SecuritySystemReducer),   
+        StoreModule.forFeature('security-system', SecuritySystemReducer),
+        EffectsModule.forFeature([SecuritySystemEffects]),   
         FormsModule,
         ReactiveFormsModule,
         HomeSecurityRoutingModule,

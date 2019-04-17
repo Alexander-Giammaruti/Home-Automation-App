@@ -16,8 +16,6 @@ export class LockItemComponent implements OnInit {
   @Input() index: number;
   @Input() locked: boolean;
 
-  editMode = false;
-
   ngOnInit() {
   }
 

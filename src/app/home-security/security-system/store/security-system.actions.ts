@@ -1,8 +1,10 @@
 import { Action } from '@ngrx/store';
 import { Lock } from 'src/app/home-security/shared/lock.model';
 import { MyWindow } from 'src/app/home-security/shared/window.model';
+import { SecuritySystem } from '../security-system.model';
 
 export const ARM_SYSTEM = 'ARM_SYSTEM';
+export const SET_SYSTEM = 'SET_SYSTEM';
 export const SET_LOCKS = 'SET_LOCKS';
 export const ADD_LOCK = 'ADD_LOCK';
 export const UPDATE_LOCK = 'UPDATE_LOCK';
@@ -12,12 +14,21 @@ export const SET_WINDOWS = 'SET_WINDOWS';
 export const ADD_WINDOW = 'ADD_WINDOW';
 export const UPDATE_WINDOW = 'UPDATE_WINDOW';
 export const DELETE_WINDOW = 'DELETE_WINDOW';
+export const GET_SECURITY_SYSTEM = 'GET_SECURITY_SYSTEM';
+export const STORE_SECURITY_SYSTEM = 'STORE_SECURITY_SYSTEM';
 
 export class ArmSystem implements Action {
     readonly type = ARM_SYSTEM;
 
     constructor(public payload: {instantArm: boolean, motionSensors: boolean}) {}
 }
+
+export class SetSystem implements Action {
+    readonly type = SET_SYSTEM;
+
+    constructor(public payload: SecuritySystem) {}
+}
+
 
 export class SetLocks implements Action {
     readonly type = SET_LOCKS;
@@ -73,8 +84,17 @@ export class DeleteWindow implements Action {
     constructor(public payload: number) {}
 }
 
+export class GetSecuritySystem implements Action {
+    readonly type = GET_SECURITY_SYSTEM;
+}
+
+export class StoreSecuritySystem implements Action {
+    readonly type = STORE_SECURITY_SYSTEM;
+}
+
 export type SecuritySystemActions = 
     ArmSystem |
+    SetSystem |
     SetLocks |
     AddLock |
     UpdateLock |

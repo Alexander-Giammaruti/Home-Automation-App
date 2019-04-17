@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form 
+      [formGroup]="windowForm"
+      (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!windowForm.valid">
+            Save
+          </button>
+          <button mat-raised-button
+            color="secondary"
+            (click)="onCancel()">
+            Cancel
+          </button>
+          <button mat-raised-button
+            color="warn"
+            (click)="onDeleteWindow()"
+            [disabled]="!editMode">
+            Delete
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <h3
+              *ngIf="editMode">
+              Editing: {{ windowName }}
+            </h3>
+            <h3
+              *ngIf="!editMode">
+              New Window
+            </h3>
+            <label for="name">Window Name:</label>
+            <input 
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

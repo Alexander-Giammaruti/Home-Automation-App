@@ -3,7 +3,7 @@
     <button mat-raised-button
     color="primary"
     (click)="onNewWindow()">
-    Add Window
+    Add/Edit Windows
   </button>
   </div>
 </div>
@@ -13,6 +13,8 @@
     <app-window-item
       *ngFor="let windowElement of (windowState | async).windows; let i = index"
       [window]="windowElement"
-      [index]="i"></app-window-item>
+      [index]="i"
+      [locked]="windowElement.lockedState">
+    </app-window-item>
   </div>
 </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MyWindow } from 'src/app/home-security/shared/window.model';
-import { FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+
+import * as fromSecuritySystem from '../../../store/security-system.reducers';
+import * as SecuritySystemActions from '../../../store/security-system.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-window-item',
@@ -11,19 +13,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class WindowItemComponent implements OnInit {
   @Input() window: MyWindow;
   @Input() index: number;
-
-  locked = new FormControl;
+  @Input() locked: boolean;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute
+    private store: Store<fromSecuritySystem.FeatureState>
   ) { }
 
   ngOnInit() {
   }
 
-  onEditWindow() {
-    this.router.navigate(['windows', this.index, 'edit'], {relativeTo: this.route});
+  onLock() {
+    this.window.lockedState = this.locked;
+    this.store.dispatch(new SecuritySystemActions.LockWindow(this.index));
   }
-
 }

@@ -2,15 +2,9 @@
   <div class="col-xs-12">
     <button mat-raised-button
       color="primary"
-      (click)="onLock()"
+      (click)="onEditLock()"
       >
-      Add Lock
-    </button>
-    <button mat-raised-button
-      color="accent"
-      (click)="onLock()"
-      >
-      Edit Locks
+      Add/Edit Locks
     </button>
   </div>
 </div>
@@ -21,6 +15,7 @@
       *ngFor="let lockElement of (lockState | async).locks; let i = index;" 
       [lock]="lockElement"
       [index]="i"
-      [locked]="lockElement.lockedState"></app-lock-item>
+      [locked]="lockElement.lockedState">
+    </app-lock-item>
   </div>
 </div>

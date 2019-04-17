@@ -88,12 +88,12 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
             case(SecuritySystemActions.SET_WINDOWS):
             return{
                 ...state,
-                Windows: [...action.payload]
+                windows: [...action.payload]
             };
         case(SecuritySystemActions.ADD_WINDOW):
             return {
                 ...state,
-                Windows: [...state.windows, action.payload]
+                windows: [...state.windows, action.payload]
             }
         case(SecuritySystemActions.UPDATE_WINDOW):
             const Window = state.windows[action.payload.index]
@@ -105,14 +105,14 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
             Windows[action.payload.index] = updatedWindow;
             return {
                 ...state,
-                Windows: Windows
+                windows: Windows
             }
         case(SecuritySystemActions.DELETE_WINDOW):
             const oldWindows = [...state.windows];
             oldWindows.splice[action.payload, 1];
             return{
                 ...state,
-                Windows: oldWindows
+                windows: oldWindows
             }
         default:
             return state;

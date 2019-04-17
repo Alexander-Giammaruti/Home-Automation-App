@@ -24,7 +24,7 @@ export class WindowListComponent implements OnInit {
   }
 
   onNewWindow(){
-    this.router.navigate(['windows', 'new'], {relativeTo: this.route});
+    this.router.navigate(['security', 'windows', 'edit']);
   }
 
 }

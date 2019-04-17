@@ -24,7 +24,7 @@ export class LockListComponent implements OnInit {
     this.lockState = this.store.select('security-system');
   }
 
-  onLock() {
+  onEditLock() {
     this.router.navigate(['security', 'locks', 'edit']);
   }
 

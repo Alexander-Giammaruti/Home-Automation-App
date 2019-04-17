@@ -1,4 +1,5 @@
 <a
+[routerLink]="[index]"
   style="cursor: pointer;"
   class="list-group-item clearfix"
   draggable="false">
@@ -9,7 +10,7 @@
       <div class="col-xs-12">
         <mat-slide-toggle
         name="locked"
-        [formControl]="locked">
+        (change)="onLock()">
           Locked
         </mat-slide-toggle>
       </div>
@@ -18,11 +19,6 @@
   <div class="pull-right">
     <div class="row">
       <div class="col-xs-12">
-        <button mat-raised-button
-          color="accent"
-          (click)="onEditWindow()">
-          Edit Window
-        </button>
       </div>
     </div>
   </div>

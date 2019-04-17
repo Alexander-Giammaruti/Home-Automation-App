@@ -22,8 +22,8 @@ const locksRoutes: Routes = [
         RouterModule.forChild(locksRoutes),
         FormsModule,
         ReactiveFormsModule,
-        MatButtonModule,
-        MatSlideToggleModule
+        MatButtonModule
+        
     ],
     exports: [
         RouterModule

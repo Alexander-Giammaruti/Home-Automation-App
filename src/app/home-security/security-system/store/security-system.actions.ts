@@ -14,6 +14,7 @@ export const SET_WINDOWS = 'SET_WINDOWS';
 export const ADD_WINDOW = 'ADD_WINDOW';
 export const UPDATE_WINDOW = 'UPDATE_WINDOW';
 export const DELETE_WINDOW = 'DELETE_WINDOW';
+export const LOCK_WINDOW = 'LOCK_WINDOW';
 export const GET_SECURITY_SYSTEM = 'GET_SECURITY_SYSTEM';
 export const STORE_SECURITY_SYSTEM = 'STORE_SECURITY_SYSTEM';
 
@@ -28,7 +29,6 @@ export class SetSystem implements Action {
 
     constructor(public payload: SecuritySystem) {}
 }
-
 
 export class SetLocks implements Action {
     readonly type = SET_LOCKS;
@@ -84,6 +84,12 @@ export class DeleteWindow implements Action {
     constructor(public payload: number) {}
 }
 
+export class LockWindow implements Action {
+    readonly type = LOCK_WINDOW;
+
+    constructor(public payload: number) {}
+}
+
 export class GetSecuritySystem implements Action {
     readonly type = GET_SECURITY_SYSTEM;
 }
@@ -103,4 +109,5 @@ export type SecuritySystemActions =
     SetWindows |
     AddWindow |
     UpdateWindow |
-    DeleteWindow;
+    DeleteWindow |
+    LockWindow;

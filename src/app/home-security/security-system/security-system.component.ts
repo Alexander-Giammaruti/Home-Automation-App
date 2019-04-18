@@ -13,9 +13,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./security-system.component.css']
 })
 export class SecuritySystemComponent implements OnInit {
-  motionSensors: boolean;
-  instantArm: boolean;
-
+  motionSensors: boolean = false;
+  instantArm: boolean = false;
+  armed: boolean;
 
   securitySystemState: Observable<fromSecuritySystem.State>
 
@@ -25,8 +25,18 @@ export class SecuritySystemComponent implements OnInit {
     this.securitySystemState = this.store.select('security-system');
   }
 
-  onSubmit() {
+  onSubmit() {  
     this.store.dispatch(new SecuritySystemActions.ArmSystem({instantArm: this.instantArm, motionSensors: this.motionSensors}));
+  }
+
+  onDisarm() {
+    this.store.dispatch(new SecuritySystemActions.DisarmSystem());
+  }
+  onPanic() {
+    if(confirm('Are you sure you wish to panic?')) {
+      console.log('At this point the alarm system would be triggered');
+      // but my code is just a front end!
+    }
   }
 
   //verification purposes

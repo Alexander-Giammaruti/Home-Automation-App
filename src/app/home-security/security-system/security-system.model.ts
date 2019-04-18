@@ -3,19 +3,17 @@ import { MyWindow } from '../shared/window.model';
 
 export class SecuritySystem {
     public name: string;
-    public armedState: {
-        settings: {
-            instantArm: boolean, 
-            motionSensors: boolean
-        }
-        , isArmed: boolean
-    }
+    public alarmSettings: {
+        instantArm: boolean,
+        motionSensors: boolean
+    };
+    armed: boolean;
     locks: Lock[];
     windows: MyWindow[];
   
 
-    constructor(name: string, armedState: {settings: {instantArm: boolean, motionSensors: boolean}, isArmed: boolean}, ){
+    constructor(name: string, alarmSettings: {instantArm: boolean, motionSensors: boolean}, isArmed: boolean ){
         this.name = name;
-        this.armedState = armedState;
+        this.alarmSettings = alarmSettings;
     }
 }

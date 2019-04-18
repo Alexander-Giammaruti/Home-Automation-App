@@ -2,6 +2,7 @@
 <!-- Figured that out ages ago but didn't remember commenting... oh well -->
 
 <!-- Need to figure how to hook up toggle switches with the state of each individual lock/window/security-system -->
+<!-- I deed eet! -->
 
 <h3>{{ (securitySystemState | async).name }}</h3>
 <div class="pull-left">
@@ -13,13 +14,17 @@
                 <mat-slide-toggle
                   name="instantArm"
                   id="instantArm"
-                  [(ngModel)]="instantArm">
+                  [(ngModel)]="instantArm"
+                  [checked]="(securitySystemState | async).alarmSettings.instantArm"
+                  [disabled]="(securitySystemState | async).armed">
                   Instant Arm
                 </mat-slide-toggle>
                 <mat-slide-toggle
                   name="motionSensors"
                   id="motionSensors"
-                  [(ngModel)]="motionSensors">
+                  [(ngModel)]="motionSensors"
+                  [checked]="(securitySystemState | async).alarmSettings.motionSensors"
+                  [disabled]="(securitySystemState | async).armed">
                   MotionSensors
                 </mat-slide-toggle>
               </div>
@@ -31,12 +36,20 @@
     <div class="row">
       <div class="col-xs-4">
         <button mat-raised-button
+          [disabled]="(securitySystemState | async).armed"
           color="primary"
           (click)="onSubmit()">
           Arm
         </button>
         <button mat-raised-button
-          color="warn">
+          [disabled]="!(securitySystemState | async).armed"
+          color="primary"
+          (click)="onDisarm()">
+          Disarm
+        </button>
+        <button mat-raised-button
+          color="warn"
+          (click)="onPanic()">
           Panic!
         </button>
       </div>

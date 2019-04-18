@@ -9,10 +9,10 @@ export interface FeatureState extends fromApp.AppState {}
 export interface State {
     name: string;
     alarmSettings: {
-        armed: boolean,
         instantArm: boolean,
         motionSensors: boolean
     };
+    armed: boolean;
     locks: Lock[];
     windows: MyWindow[];
 }
@@ -20,10 +20,11 @@ export interface State {
 const initialState: State = {
     name: "Sample Security System",
     alarmSettings: {
-        armed: false,
+        
         instantArm: false,
         motionSensors: false
     },
+    armed: false,
     locks: [
         new Lock('A sample lock', false, null),
         new Lock('A second sample lock', true, null)
@@ -43,6 +44,15 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
                 alarmSettings: {
                     instantArm: action.payload.instantArm,
                     motionSensors: action.payload.motionSensors
+                }
+            }
+        case(SecuritySystemActions.DISARM_SYSTEM):
+            return {
+                ...state,
+                armed: false,
+                alarmSettings: {
+                    instantArm: false,
+                    motionSensors: false
                 }
             }
         case(SecuritySystemActions.SET_SYSTEM): 

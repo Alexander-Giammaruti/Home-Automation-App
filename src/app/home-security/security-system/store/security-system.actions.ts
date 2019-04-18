@@ -4,6 +4,7 @@ import { MyWindow } from 'src/app/home-security/shared/window.model';
 import { SecuritySystem } from '../security-system.model';
 
 export const ARM_SYSTEM = 'ARM_SYSTEM';
+export const DISARM_SYSTEM = 'DISARM_SYSTEM';
 export const SET_SYSTEM = 'SET_SYSTEM';
 export const SET_LOCKS = 'SET_LOCKS';
 export const ADD_LOCK = 'ADD_LOCK';
@@ -22,6 +23,12 @@ export class ArmSystem implements Action {
     readonly type = ARM_SYSTEM;
 
     constructor(public payload: {instantArm: boolean, motionSensors: boolean}) {}
+}
+
+export class DisarmSystem implements Action {
+    readonly type = DISARM_SYSTEM;
+
+    //constructor() {}
 }
 
 export class SetSystem implements Action {
@@ -100,6 +107,7 @@ export class StoreSecuritySystem implements Action {
 
 export type SecuritySystemActions = 
     ArmSystem |
+    DisarmSystem |
     SetSystem |
     SetLocks |
     AddLock |

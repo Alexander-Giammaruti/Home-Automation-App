@@ -119,7 +119,7 @@ export function SecuritySystemReducer(state = initialState, action: SecuritySyst
             }
         case(SecuritySystemActions.DELETE_WINDOW):
             const oldWindows = [...state.windows];
-            oldWindows.splice[action.payload, 1];
+            oldWindows.splice(action.payload, 1);
             return{
                 ...state,
                 windows: oldWindows

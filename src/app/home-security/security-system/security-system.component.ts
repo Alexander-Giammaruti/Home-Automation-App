@@ -23,6 +23,7 @@ export class SecuritySystemComponent implements OnInit {
 
   ngOnInit() {
     this.securitySystemState = this.store.select('security-system');
+    
   }
 
   onSubmit() {  

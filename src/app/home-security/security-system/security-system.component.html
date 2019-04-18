@@ -5,6 +5,25 @@
 <!-- I deed eet! -->
 
 <h3>{{ (securitySystemState | async).name }}</h3>
+<div class="container">
+  <div 
+  class="row"
+  *ngIf="(securitySystemState | async).armed">
+  <div class="col-xs-12">
+    <h3 style="color: Red; font-weight: bolder">ARMED</h3>
+    <ul>
+      <li
+        *ngIf="(securitySystemState | async).alarmSettings.motionSensors"
+        style="color: Red; font-weight: bold">Motion Sensors Active</li>
+      <li
+        *ngIf="(securitySystemState | async).alarmSettings.instantArm"
+        style="color: Red; font-weight: bold">Instant Arm</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
 <div class="pull-left">
     <div class="row">
         <div class="col-xs-8">

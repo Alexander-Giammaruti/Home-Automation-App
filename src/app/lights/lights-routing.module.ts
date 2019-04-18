@@ -11,8 +11,8 @@ const lightsRoutes: Routes = [
         children: [
             {path: '', component: LightStarterComponent},
             {path: 'new', component: LightEditComponent},
-            {path: ':id', component: LightStarterComponent},
-            {path: ':id/edit', component: LightEditComponent}
+            {path: ':id', component: LightEditComponent},
+            
         ]
     }
 ];

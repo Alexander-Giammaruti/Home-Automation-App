@@ -17,6 +17,7 @@ import * as lightActions from '../store/light.actions';
 export class LightEditComponent implements OnInit {
   id: number;
   lightForm: FormGroup;
+  lightName: string;
 
   editMode = false;
 
@@ -48,6 +49,7 @@ export class LightEditComponent implements OnInit {
         .subscribe((lightState: fromLight.State) => {
           const light = lightState.lights[this.id];
           lightName = light.name;
+          this.lightName = lightName;
           lightDescription = light.description;
         })
     }

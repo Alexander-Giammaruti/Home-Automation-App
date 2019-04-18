@@ -12,6 +12,7 @@ export class LightItemComponent implements OnInit {
   @Input() light: Light;
   @Input() index: number;
   
+
   power = new FormControl;
   
 
@@ -22,11 +23,7 @@ export class LightItemComponent implements OnInit {
 
   ngOnInit() {
     this.light.brightness = 1;
-    
   }
 
-  onEditLight() {
-    this.router.navigate([this.index, 'edit'], {relativeTo: this.route});
-  }
 
 }

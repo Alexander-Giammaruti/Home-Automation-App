@@ -1,4 +1,6 @@
 <a 
+[routerLink]="[index]"
+
 style="cursor: pointer;"
 class="list-group-item clearfix"
 draggable="false">
@@ -30,13 +32,5 @@ draggable="false">
           (input)="light.brightness = $event.value"
           [value]="light.brigntness"></mat-slider>
     </div>
-    
-    
-
-  </div>
-  <div class="pull-right">
-    <button mat-raised-button
-      color="accent"
-      (click)="onEditLight()">Edit Light</button>
   </div>
 </a>

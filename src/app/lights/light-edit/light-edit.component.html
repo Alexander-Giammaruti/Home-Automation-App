@@ -24,6 +24,8 @@
           </button>
         </div>
       </div>
+      <h3 *ngIf="editMode">Editing: {{ lightName }} </h3>
+      <h3 *ngIf="!editMode">New Light </h3>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">

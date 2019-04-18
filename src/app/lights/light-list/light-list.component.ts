@@ -24,7 +24,7 @@ export class LightListComponent implements OnInit {
     this.lightState = this.store.select('lights');
   }
 
-  onNewLight() {
+  onAddLight() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 }

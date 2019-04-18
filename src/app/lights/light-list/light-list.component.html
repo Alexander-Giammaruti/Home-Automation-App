@@ -12,7 +12,8 @@
     <app-light-item
       *ngFor="let LightElement of (lightState | async).lights; let i=index"
       [light]="LightElement"
-      [index]="i">
+      [index]="i"
+      [onOff]="LightElement.powered.on">
     </app-light-item>
   </div>
 </div>

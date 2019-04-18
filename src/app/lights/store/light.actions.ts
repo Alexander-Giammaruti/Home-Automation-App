@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store'
 import { Light } from '../light.model';
 
+export const TOGGLE_POWER = 'TOGGLE_POWER';
 export const SET_LIGHTS = 'SET_LIGHTS';
 export const ADD_LIGHT = 'ADD_LIGHT';
 export const UPDATE_LIGHT = 'UPDATE_LIGHT';
@@ -8,9 +9,14 @@ export const DELETE_LIGHT = 'DELETE_LIGHT';
 export const GET_LIGHTS = 'GET_LIGHTS';
 export const STORE_LIGHTS = 'STORE_LIGHTS';
 // to be added... database compatability with an effects module...
+//done
 
 
+export class TogglePower implements Action {
+    readonly type = TOGGLE_POWER;
 
+    constructor(public payload: number) {}
+}
 
 export class SetLights implements Action {
     readonly type = SET_LIGHTS;
@@ -45,6 +51,7 @@ export class StoreLights implements Action {
 }
 
 export type LightActions = 
+    TogglePower |
     SetLights |
     AddLight |
     UpdateLight |

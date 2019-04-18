@@ -1,6 +1,5 @@
 <a 
 [routerLink]="[index]"
-
 style="cursor: pointer;"
 class="list-group-item clearfix"
 draggable="false">
@@ -14,13 +13,15 @@ draggable="false">
       <label for="power">Power</label>
       <mat-slide-toggle 
         name="power"
-        [formControl]="power"
+        (change)="onToggle()"
+        [checked]="onOff"
+
         ></mat-slide-toggle>
     </div>
     
     <div class="col-xs-10">
         <mat-slider
-          *ngIf="power.value"
+          *ngIf="onOff"
           activated="activated"
           name="brightness"
           id="brightness"
@@ -29,8 +30,8 @@ draggable="false">
           max="10"
           step="1"
           value="1"
-          (input)="light.brightness = $event.value"
-          [value]="light.brigntness"></mat-slider>
+          (input)="light.powered.brightness = $event.value"
+          [value]="(lightState | async).lights[index].powered.brightness"></mat-slider>
     </div>
   </div>
 </a>

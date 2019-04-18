@@ -2,12 +2,12 @@
 export class Light {
     public name: string;
     public description: string;
-    public brightness: number;
+    public powered: {on: boolean, brightness: number};
 
-    constructor(name: string, desc: string, brightness: number) {
+    constructor(name: string, desc: string, powered: {on: boolean, brightness: number}) {
         this.name=name;
         this.description = desc;
-        this.brightness = brightness;
+        this.powered = powered;
     }
     
 }

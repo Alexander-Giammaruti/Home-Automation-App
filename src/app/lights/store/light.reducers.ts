@@ -12,14 +12,20 @@ export interface State {
 
 const initialState: State = {
     lights: [
-        new Light('A sample light', 'This light is to show a sample of how "our product" works', 1),
-        new Light('A second sample light', 'This second light is to show a sample of how "our product" works', 1),
+        new Light('A sample light', 'This light is to show a sample of how "our product" works', {on: false, brightness: 1}),
+        new Light('A second sample light', 'This second light is to show a sample of how "our product" works', {on: false, brightness: 1}),
 
     ]
 };
 
 export function LightReducer(State = initialState, action: LightActions.LightActions) {
     switch(action.type) {
+        case(LightActions.TOGGLE_POWER):
+            State.lights[action.payload].powered.on = !State.lights[action.payload].powered.on;
+            return {
+                ...State
+            }
+
         case(LightActions.SET_LIGHTS):
             return {
                 ...State,

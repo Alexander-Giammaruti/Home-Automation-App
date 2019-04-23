@@ -1,0 +1,31 @@
+<mat-card
+  >
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="list-group-item-heading">{{ light.name }}</h4>
+      <p class="list-group-item-text">{{ light.description }}</p>
+      <hr>
+      <div class="col-xs-4">
+        <mat-slide-toggle 
+          name="power"
+          (change)="onToggle()"
+          [checked]="power"
+          >Power</mat-slide-toggle>
+      </div>
+      <div class="col-xs-8">
+        <mat-slider
+          *ngIf="power"
+          activated="activated"
+          name="brightness"
+          thumbLabel tickInterval="1"
+          min="1"
+          max="10"
+          step="1"
+          (input)="light.powered.brightness = $event.value"
+          [value]="(roomState | async).rooms[roomIndex].lights[index].powered.brightness">
+      </mat-slider>
+      </div>
+    </div>
+  </div>
+</mat-card>
+

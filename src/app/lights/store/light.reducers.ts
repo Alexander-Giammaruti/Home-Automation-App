@@ -21,7 +21,7 @@ const initialState: State = {
 export function LightReducer(State = initialState, action: LightActions.LightActions) {
     switch(action.type) {
         case(LightActions.TOGGLE_POWER):
-            State.lights[action.payload].powered.on = !State.lights[action.payload].powered.on;
+            
             return {
                 ...State
             }

@@ -6,7 +6,7 @@ import { HomeComponent } from './core/home/home.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'lights', loadChildren: './lights/lights.module#LightsModule'},
+    {path: 'lights', loadChildren: './rooms/rooms.module#RoomsModule'},
     {path: 'security', loadChildren: './home-security/home-security.module#HomeSecurityModule'},
     {path: 'entertainment', loadChildren: './home-entertainment/home-entertainment.module#HomeEntertainmentModule'},
     {path: 'cleaning', loadChildren: './home-cleaning/home-cleaning.module#HomeCleaningModule'},

@@ -1,4 +1,4 @@
-import { Light } from '../../lights/light.model';
+import { Light } from '../lights/light.model';
 
 export class Room {
     public name: string;

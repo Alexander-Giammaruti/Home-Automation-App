@@ -11,8 +11,7 @@ const appRoutes: Routes = [
     {path: 'entertainment', loadChildren: './home-entertainment/home-entertainment.module#HomeEntertainmentModule'},
     {path: 'cleaning', loadChildren: './home-cleaning/home-cleaning.module#HomeCleaningModule'},
     {path: 'kitchen', loadChildren: './kitchen/kitchen.module#KitchenModule'},
-    {path: 'outdoor', loadChildren: './outdoor/outdoor.module#OutdoorModule'},
-    {path: 'pets', loadChildren: './pets/pets.module#PetsModule'}
+    {path: 'outdoor', loadChildren: './outdoor/outdoor.module#OutdoorModule'}
 ];
 
 @NgModule({

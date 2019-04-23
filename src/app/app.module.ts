@@ -13,11 +13,15 @@ import {reducers } from './store/app.reducers'
 import { GestureConfig } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth/store/auth.effects';
+import { RoomsComponent } from './house/rooms/rooms.component';
+import { HouseComponent } from './house/house.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    RoomsComponent,
+    HouseComponent,
   ],
   imports: [
     BrowserModule,

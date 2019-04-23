@@ -10,25 +10,21 @@
       </button>
       <ul class="dropdown-menu">
         <li
-          *ngFor="let RoomElement of (roomState | async).rooms; let i=index"
-          ><a  style="cursor: pointer;">{{(roomState | async).rooms[i].name}}</a></li>
+          *ngFor="let RoomElement of (roomState | async).rooms; let i=index">
+          <a (click)="onClick(i)"style="cursor: pointer;">{{(roomState | async).rooms[i].name}}</a>
+        </li>
       </ul>
     </div>
   </div>
   <div class="col-xs-6">
     <button mat-raised-button
-      color="primary">
-      Add Room
-    </button>
-    <button mat-raised-button>
-      Edit Room
-    </button>
-    <button mat-raised-button
-      color="warn">
-      Delete Room
+      color="accent"
+      (click)="onAddEditRoom()">
+      Add/Edit Room
     </button>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-xs-12">
     <router-outlet></router-outlet>

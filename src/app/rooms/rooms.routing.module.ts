@@ -1,10 +1,16 @@
 import { Routes, RouterModule } from "@angular/router";
 import { RoomsComponent } from './rooms.component';
 import { NgModule } from '@angular/core';
+import { RoomEditComponent } from './room-edit/room-edit.component';
+import { RoomItemComponent } from './room-item/room-item.component';
 
 
 const roomsRoutes: Routes = [
-    {path: '', component: RoomsComponent}
+    {path: '', component: RoomsComponent, children: [
+        {path: 'edit' ,component: RoomEditComponent},
+        {path: ':id', component: RoomItemComponent},
+        
+    ]}
 ]
 
 @NgModule({

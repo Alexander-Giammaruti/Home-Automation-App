@@ -67,13 +67,28 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
                 ...State
             }
         
+            // !!! Need to fix this still
         case(RoomActions.ADD_LIGHT):
-            const lights = State.rooms[action.payload.roomIndex].lights;
-            lights[action.payload.lightIndex] = action.payload.light;
-            return {
-                ...State,
-                lights: lights
-            }
+            console.log(action.payload.roomIndex)
+            
+            
+            return State.rooms && State.rooms.length > 0
+                ? {
+                    ...State,
+                    rooms: State.rooms.map((room, index) => index === action.payload.roomIndex
+                        ? {
+                            ...room,
+                            lights: [...room.lights, new Light(action.payload.light.name, action.payload.light.description, {on: false, brightness: 1})]
+                        }
+                        :room
+                    )
+                }
+                :State;
+            
+            
+
+      
+
 
         default:
             return State;

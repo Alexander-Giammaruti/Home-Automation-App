@@ -1,7 +1,7 @@
 //this file is just a dummy and will be modified heavily once components are set up
 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 
 const appRoutes: Routes = [
@@ -14,9 +14,11 @@ const appRoutes: Routes = [
     {path: 'outdoor', loadChildren: './outdoor/outdoor.module#OutdoorModule'}
 ];
 
+
+
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+        RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules, paramsInheritanceStrategy: 'always'})
     ],
     exports: [
         RouterModule

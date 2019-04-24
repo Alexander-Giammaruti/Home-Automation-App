@@ -60,7 +60,7 @@ export class TogglePower implements Action {
 export class AddLight implements Action {
     readonly type = ADD_LIGHT;
 
-    constructor(public payload: {roomIndex: number, lightIndex: number, light: Light}) {}
+    constructor(public payload: {roomIndex: number, light: Light}) {}
 }
 
 export class UpdateLight implements Action {
@@ -72,7 +72,7 @@ export class UpdateLight implements Action {
 export class DeleteLight implements Action {
     readonly type = DELETE_LIGHT;
 
-    constructor(public payload: number) {}
+    constructor(public payload: {roomIndex: number, lightIndex: number}) {}
 }
 
 export type RoomActions = 

@@ -9,6 +9,8 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
 import { RoomItemComponent } from './room-item/room-item.component';
 import { RoomLightListComponent } from './room-item/room-light-list/room-light-list.component';
 import { RoomLightItemComponent } from './room-item/room-light-list/room-light-item/room-light-item.component';
+import { RoomLightEditComponent } from './room-item/room-light-edit/room-light-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -16,12 +18,15 @@ import { RoomLightItemComponent } from './room-item/room-light-list/room-light-i
         RoomEditComponent,
         RoomItemComponent,
         RoomLightListComponent,
-        RoomLightItemComponent
+        RoomLightItemComponent,
+        RoomLightEditComponent
     ],
     imports: [ 
         SharedModule,
         RoomsRoutingModule,
         StoreModule.forFeature('rooms', RoomReducer),
+        FormsModule,
+        ReactiveFormsModule,
         MatSliderModule,
         MatButtonModule,
         MatSlideToggleModule,

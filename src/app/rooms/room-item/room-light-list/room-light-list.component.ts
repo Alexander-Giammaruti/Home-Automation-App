@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as fromRoom from '../../store/room.reducers';
+
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -29,6 +30,10 @@ export class RoomLightListComponent implements OnInit {
         this.index = params.id
       }
     )
+  }
+
+  onAddEdit() {
+    this.router.navigate(['editlight'], {relativeTo: this.route});
   }
 
 }

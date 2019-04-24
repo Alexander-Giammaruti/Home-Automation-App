@@ -16,6 +16,7 @@ export class RoomLightListComponent implements OnInit {
 
   roomState: Observable<fromRoom.State>
   index: number;
+  editmode: boolean = false;
 
   constructor(
     private router: Router,
@@ -33,7 +34,8 @@ export class RoomLightListComponent implements OnInit {
   }
 
   onAddEdit() {
-    this.router.navigate(['editlight'], {relativeTo: this.route});
+    this.router.navigate(['edit'], {relativeTo: this.route});
+    this.editmode = true;
   }
 
 }

@@ -66,7 +66,7 @@ export class AddLight implements Action {
 export class UpdateLight implements Action {
     readonly type = UPDATE_LIGHT;
 
-    constructor(public payload: {index: number, updatedLight: Light[]}) {}
+    constructor(public payload: {roomIndex: number, lightIndex: number, updatedLight: Light[]}) {}
 }
 
 export class DeleteLight implements Action {

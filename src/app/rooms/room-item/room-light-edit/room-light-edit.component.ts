@@ -32,11 +32,14 @@ export class RoomLightEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.roomID = +this.route.snapshot.params['id'];
+    
     this.route.paramMap.subscribe(params => {
       this.roomID = +params.get('id');
-      this.lightID = +params.get('lightid');
-      this.editMode = params.get('lightid') != null;
+      this.lightID = +params.get('lightID');
+      this.editMode = params.get('lightID') != null;
+      
+      console.log('roomID: ' + params.get('id'))
+      console.log('lightID: ' + params.get('lightID'))
       console.log(this.editMode)
     })
     this.initForm();
@@ -57,7 +60,7 @@ export class RoomLightEditComponent implements OnInit {
           lightName = light.name;
           this.lightName = lightName;
           lightDescription = light.description;
-        })
+        });
     }
 
     this.lightForm = new FormGroup({
@@ -77,9 +80,10 @@ export class RoomLightEditComponent implements OnInit {
 
   onSubmit() {
     if(this.editMode) {
-      
+      this.store.dispatch(new RoomActions.UpdateLight(
+        {roomIndex: this.roomID, lightIndex: this.lightID, updatedLight: this.lightForm.value}));
     } else {
-      this.store.dispatch(new RoomActions.AddLight({roomIndex: this.roomID, light: this.lightForm.value}))
+      this.store.dispatch(new RoomActions.AddLight({roomIndex: this.roomID, light: this.lightForm.value}));
     }
   }
     

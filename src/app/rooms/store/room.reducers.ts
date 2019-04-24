@@ -68,10 +68,10 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             }
         
             // !!! Need to fix this still
+            // fixed it but it's not uniform and kinda ugly...
+            // make it run before you make it look good I guess
         case(RoomActions.ADD_LIGHT):
             console.log(action.payload.roomIndex)
-            
-            
             return State.rooms && State.rooms.length > 0
                 ? {
                     ...State,
@@ -84,7 +84,47 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
                     )
                 }
                 :State;
-            
+
+        case(RoomActions.UPDATE_LIGHT):
+                const light = State.rooms[action.payload.roomIndex].lights[action.payload.lightIndex];
+                const updatedLight = {
+                    ...light,
+                    ...action.payload.updatedLight
+                };
+                const lights = [...State.rooms[action.payload.roomIndex].lights];
+                lights[action.payload.lightIndex] = updatedLight;
+
+                return State.rooms && State.rooms.length > 0
+                    ? {
+                        ...State,
+                        rooms: State.rooms.map((room, index) => index === action.payload.roomIndex
+                            ? {
+                                ...room,
+                                lights: lights
+                            }
+                            :room
+                        )
+                    }
+                    :State;
+
+            // need to test this!!!
+            // worked without modification!!!!!!!!!
+        case(RoomActions.DELETE_LIGHT):
+                const oldLights = [...State.rooms[action.payload.roomIndex].lights]
+                oldLights.splice(action.payload.lightIndex, 1);
+
+                return State.rooms && State.rooms.length > 0
+                    ? {
+                        ...State,
+                        rooms: State.rooms.map((room, index) => index === action.payload.roomIndex
+                            ?{
+                                ...room,
+                                lights: oldLights
+                            }
+                            :room
+                        )
+                    }
+                    :State;
             
 
       

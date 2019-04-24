@@ -10,10 +10,10 @@ const roomsRoutes: Routes = [
     {path: '', component: RoomsComponent, children: [
         {path: 'edit' ,component: RoomEditComponent},
         {path: ':id', component: RoomItemComponent, children: [
-            {path: 'editlight', component: RoomLightEditComponent, children: [
-                {path: ':lightid', component: RoomLightEditComponent}
-            ]}
+            {path: 'edit', component: RoomLightEditComponent},
+            {path: 'edit/:lightID', component: RoomLightEditComponent},
         ]},
+        
         
     ]}
 ]

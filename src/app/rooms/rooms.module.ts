@@ -11,11 +11,17 @@ import { RoomLightListComponent } from './room-item/room-light-list/room-light-l
 import { RoomLightItemComponent } from './room-item/room-light-list/room-light-item/room-light-item.component';
 import { RoomLightEditComponent } from './room-item/room-light-edit/room-light-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RoomEditListComponent } from './room-edit/room-edit-list/room-edit-list.component';
+import { RoomEditListItemComponent } from './room-edit/room-edit-list/room-edit-list-item/room-edit-list-item.component';
+import { RoomEditDetailComponent } from './room-edit/room-edit-detail/room-edit-detail.component';
 
 @NgModule({
     declarations: [
         RoomsComponent,
         RoomEditComponent,
+        RoomEditDetailComponent,
+        RoomEditListComponent,
+        RoomEditListItemComponent,
         RoomItemComponent,
         RoomLightListComponent,
         RoomLightItemComponent,

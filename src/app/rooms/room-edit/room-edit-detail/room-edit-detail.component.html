@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form
+      [formGroup]="roomForm"
+      >
+      <div class="row">
+        <div class="col-xs-12">
+          <button mat-raised-button
+            color="primary"
+            type="submit"
+            >
+            Save
+          </button>
+          <button mat-raised-button
+            color="secondary"
+            >
+            Cancel
+          </button>
+          <button mat-raised-button
+            color="warn"
+            
+            [disabled]="!editMode">
+            Delete
+          </button>
+        </div>
+      </div>
+      <h3 *ngIf="editMode">Editing: {{ roomName }}</h3>
+      <h3 *ngIf="!editMode">New Room </h3>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="roomName">Name:</label>
+            <input 
+              type="text"
+              id="roomName"
+              formControlName="roomName"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -7,7 +7,6 @@ import * as RoomActions from '../../store/room.actions';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { take } from 'rxjs/operators';
-import { LightDetailComponent } from 'src/app/lights/light-detail/light-detail.component';
 
 
 @Component({
@@ -31,16 +30,11 @@ export class RoomLightEditComponent implements OnInit {
     private store: Store<fromRoom.FeatureState>
   ) { }
 
-  ngOnInit() {
-    
+  ngOnInit() { 
     this.route.paramMap.subscribe(params => {
       this.roomID = +params.get('id');
       this.lightID = +params.get('lightID');
       this.editMode = params.get('lightID') != null;
-      
-      console.log('roomID: ' + params.get('id'))
-      console.log('lightID: ' + params.get('lightID'))
-      console.log(this.editMode)
     })
     this.initForm();
     
@@ -52,7 +46,7 @@ export class RoomLightEditComponent implements OnInit {
 
     if(this.editMode) {
       //edit mode is activated... probably editing an already existing light
-      //should grab the light from the light reducer and populate the form for use of editing
+      //should grab the light from the room reducer and populate the form for use of editing
       this.store.select('rooms')
         .pipe(take(1))
         .subscribe((roomState: fromRoom.State) => {

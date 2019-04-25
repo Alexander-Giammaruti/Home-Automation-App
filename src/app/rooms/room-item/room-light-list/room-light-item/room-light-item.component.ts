@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Light } from 'src/app/lights/light.model';
+import { Light } from '../../../light.model';
 
 import * as fromRoom from '../../../store/room.reducers';
 import * as RoomActions from '../../../store/room.actions';

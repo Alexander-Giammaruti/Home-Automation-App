@@ -7,7 +7,6 @@ import { AuthRoutingModule } from './auth.routing.module';
 import { StoreModule } from '@ngrx/store';
 import { AuthReducer } from './store/auth.reducers';
 import { SecuritySystemReducer } from '../home-security/security-system/store/security-system.reducers';
-import { LightReducer } from '../lights/store/light.reducers';
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import { LightReducer } from '../lights/store/light.reducers';
         FormsModule,
         StoreModule.forFeature('auth', AuthReducer),
         StoreModule.forFeature('securitySystem', SecuritySystemReducer),
-        StoreModule.forFeature('lights', LightReducer),
         AuthRoutingModule
     ],
     exports: [],

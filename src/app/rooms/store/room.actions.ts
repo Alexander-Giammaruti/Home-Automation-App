@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Room } from '../room.model';
-import { Light } from 'src/app/lights/light.model';
+import { Light } from '../light.model';
 
 //whole rooms
 

@@ -1,7 +1,7 @@
 import * as fromApp from '../../store/app.reducers';
 import * as RoomActions from './room.actions';
 import { Room } from '../room.model';
-import { Light } from 'src/app/lights/light.model';
+import { Light } from '../light.model';
 
 export interface FeatureState extends fromApp.AppState {}
 
@@ -33,8 +33,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             };
 
         case(RoomActions.ADD_ROOM):
-            console.log(action.payload.name)
-            return State.rooms && State.rooms.length > 0
+            return State.rooms 
                 ? {
                     ...State,
                     rooms: [...State.rooms, new Room(action.payload.name, [])]
@@ -49,7 +48,6 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             };
             const rooms = [...State.rooms];
             rooms[action.payload.index] = updatedRoom;
-            console.log(rooms)
             return {
                 ...State,
                 rooms: rooms
@@ -75,8 +73,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             // fixed it but it's not uniform and kinda ugly...
             // make it run before you make it look good I guess
         case(RoomActions.ADD_LIGHT):
-            console.log(action.payload.roomIndex)
-            return State.rooms && State.rooms.length > 0
+            return State.rooms
                 ? {
                     ...State,
                     rooms: State.rooms.map((room, index) => index === action.payload.roomIndex
@@ -98,7 +95,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
                 const lights = [...State.rooms[action.payload.roomIndex].lights];
                 lights[action.payload.lightIndex] = updatedLight;
 
-                return State.rooms && State.rooms.length > 0
+                return State.rooms 
                     ? {
                         ...State,
                         rooms: State.rooms.map((room, index) => index === action.payload.roomIndex

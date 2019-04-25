@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import * as fromRoom from '../store/room.reducers';
 import { Store } from '@ngrx/store';
-import { Light } from 'src/app/lights/light.model';
+import { Light } from '../light.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({

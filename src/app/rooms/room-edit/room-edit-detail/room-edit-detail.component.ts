@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { Store } from '@ngrx/store';
+import { take } from 'rxjs/operators';
 
 import * as fromRoom from '../../store/room.reducers';
-import { take } from 'rxjs/operators';
+import * as RoomActions from '../../store/room.actions';
 
 @Component({
   selector: 'app-room-edit-detail',
@@ -14,7 +16,7 @@ import { take } from 'rxjs/operators';
 export class RoomEditDetailComponent implements OnInit {
   id: number;
   roomForm: FormGroup;
-  roomName: string;
+  name: string;
 
   editMode = false;
 
@@ -27,7 +29,6 @@ export class RoomEditDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log(params['id'])
         this.id = +params['id'];
         this.editMode = params['id'] != null;
         this.initForm()
@@ -36,21 +37,36 @@ export class RoomEditDetailComponent implements OnInit {
   }
 
   private initForm() {
-    let roomName = '';
-
+    let name = '';
     if(this.editMode) {
       this.store.select('rooms')
       .pipe(take(1))
       .subscribe((roomState: fromRoom.State) => {
         const room = roomState.rooms[this.id];
-        roomName = room.name;
-        this.roomName = room.name;
+        name = room.name;
+        this.name = room.name;
       })
     }
-
     this.roomForm = new FormGroup({
-      'roomName': new FormControl(roomName, [Validators.required])
+      'name': new FormControl(name, [Validators.required])
     })
   }
 
+  onCancel() {
+    this.router.navigate(['homecontrol']);
+  }
+
+  onDelete() {
+    this.store.dispatch(new RoomActions.DeleteRoom(this.id));
+    this.router.navigate(['homecontrol', 'edit']);
+  }
+
+  onSubmit() {
+    if(this.editMode) {
+      this.store.dispatch(new RoomActions.UpdateRoom({index: this.id, updatedRoom: this.roomForm.value}));
+    } else {
+      this.store.dispatch(new RoomActions.AddRoom(this.roomForm.value));
+    }
+    this.onCancel();
+  }
 }

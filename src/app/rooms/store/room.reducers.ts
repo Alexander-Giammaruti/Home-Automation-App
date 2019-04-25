@@ -33,10 +33,13 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             };
 
         case(RoomActions.ADD_ROOM):
-            return {
-                ...State,
-                rooms: [...State.rooms, action.payload]
-            }
+            console.log(action.payload.name)
+            return State.rooms && State.rooms.length > 0
+                ? {
+                    ...State,
+                    rooms: [...State.rooms, new Room(action.payload.name, [])]
+                }
+                :State;
 
         case(RoomActions.UPDATE_ROOM):
             const room = State.rooms[action.payload.index];
@@ -46,6 +49,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
             };
             const rooms = [...State.rooms];
             rooms[action.payload.index] = updatedRoom;
+            console.log(rooms)
             return {
                 ...State,
                 rooms: rooms

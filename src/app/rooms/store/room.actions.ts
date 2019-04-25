@@ -27,7 +27,7 @@ export class SetRooms implements Action {
 export class AddRoom implements Action {
     readonly type = ADD_ROOM;
 
-    constructor(public payload: Room[]) {}
+    constructor(public payload: Room) {}
 }
 
 export class UpdateRoom implements Action {

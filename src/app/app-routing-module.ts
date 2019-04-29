@@ -7,11 +7,7 @@ import { HomeComponent } from './core/home/home.component';
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'homecontrol', loadChildren: './rooms/rooms.module#RoomsModule'},
-    {path: 'security', loadChildren: './home-security/home-security.module#HomeSecurityModule'},
-    {path: 'entertainment', loadChildren: './home-entertainment/home-entertainment.module#HomeEntertainmentModule'},
-    {path: 'cleaning', loadChildren: './home-cleaning/home-cleaning.module#HomeCleaningModule'},
-    {path: 'kitchen', loadChildren: './kitchen/kitchen.module#KitchenModule'},
-    {path: 'outdoor', loadChildren: './outdoor/outdoor.module#OutdoorModule'}
+    {path: 'security', loadChildren: './home-security/home-security.module#HomeSecurityModule'}
 ];
 
 

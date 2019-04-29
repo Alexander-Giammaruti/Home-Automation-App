@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoomEditListComponent } from './room-edit/room-edit-list/room-edit-list.component';
 import { RoomEditListItemComponent } from './room-edit/room-edit-list/room-edit-list-item/room-edit-list-item.component';
 import { RoomEditDetailComponent } from './room-edit/room-edit-detail/room-edit-detail.component';
+import { EffectsModule } from '@ngrx/effects';
+import { RoomEffects } from './store/room.effects';
 
 @NgModule({
     declarations: [
@@ -31,6 +33,7 @@ import { RoomEditDetailComponent } from './room-edit/room-edit-detail/room-edit-
         SharedModule,
         RoomsRoutingModule,
         StoreModule.forFeature('rooms', RoomReducer),
+        EffectsModule.forFeature([RoomEffects]),
         FormsModule,
         ReactiveFormsModule,
         MatSliderModule,

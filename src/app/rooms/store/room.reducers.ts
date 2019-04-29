@@ -29,7 +29,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
         case(RoomActions.SET_ROOMS):
             return {
                 ...State,
-                rooms: [...action.payload]
+                ...action.payload
             };
 
         case(RoomActions.ADD_ROOM):

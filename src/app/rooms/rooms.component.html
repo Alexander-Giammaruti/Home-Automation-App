@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-6">
+    <div class="btn-group"
+    appDropdown>
+      <button mat-raised-button
+        color="primary"
+        class="dropdown-toggle"
+        >
+          Select a Room <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li
+          *ngFor="let RoomElement of (roomState | async).rooms; let i=index">
+          <a (click)="onClick(i)"style="cursor: pointer;">{{(roomState | async).rooms[i].name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <button mat-raised-button
+      color="accent"
+      (click)="onAddEditRoom()">
+      Add/Edit Room
+    </button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

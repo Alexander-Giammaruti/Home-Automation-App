@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { MatSlider, MatButton } from '@angular/material';
+import { MatSlider, MatButton, MatSliderModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
     declarations: [],
     imports: [ 
-        MatSlider,
-        MatButton
+        MatSliderModule,
+        MatButtonModule
     ],
     exports: [
         MatSlider,

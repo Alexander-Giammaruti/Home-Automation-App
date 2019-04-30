@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import * as AuthActions from '../../auth/store/auth.actions';
-import * as LightActions from '../../lights/store/light.actions';
 import * as SecuritySystemActions from '../../home-security/security-system/store/security-system.actions';
+import * as RoomActions from '../../rooms/store/room.actions';
 
 
 
@@ -30,13 +30,13 @@ export class HeaderComponent implements OnInit {
   }
 
   onSaveData() {
-    this.store.dispatch(new LightActions.StoreLights());
-    this.store.dispatch(new SecuritySystemActions.StoreSecuritySystem());    
+    this.store.dispatch(new SecuritySystemActions.StoreSecuritySystem()); 
+    this.store.dispatch(new RoomActions.StoreRooms());   
   }
 
   onFetchData() {
-    this.store.dispatch(new LightActions.GetLights());
     this.store.dispatch(new SecuritySystemActions.GetSecuritySystem());
+    this.store.dispatch(new RoomActions.GetRooms());
   }
 
 

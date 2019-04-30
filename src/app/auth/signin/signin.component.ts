@@ -9,7 +9,6 @@ import * as AuthActions from '../store/auth.actions'
 import * as fromSecurity from '../../home-security/security-system/store/security-system.reducers';
 //import * as SecuritySystemActions from '../../home-security/security-system/store/security-system.actions';
 
-import * as fromLight from '../../lights/store/light.reducers';
 //import * as LightActions from '../../lights/store/light.actions';
 
 
@@ -26,8 +25,6 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private store: Store<fromApp.AppState>,
-    private securityStore: Store<fromSecurity.FeatureState>,
-    private lightStore: Store<fromLight.FeatureState>
   ) { }
 
   ngOnInit() {

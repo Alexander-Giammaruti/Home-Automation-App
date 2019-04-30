@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button mat-raised-button
+      color="primary"
+      (click)="onAddEdit()">
+      Add/Edit Lights
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-room-light-item
+      *ngFor="let lightElement of (roomState| async).rooms[index].lights; let i=index;"
+      [light]="lightElement"
+      [index]="i"
+      [power]="lightElement.powered.on"
+      [roomIndex]="index">
+    </app-room-light-item>
+  </div>
+</div>

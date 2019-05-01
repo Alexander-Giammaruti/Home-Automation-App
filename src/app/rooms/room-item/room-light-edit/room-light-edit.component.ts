@@ -42,7 +42,6 @@ export class RoomLightEditComponent implements OnInit {
 
   private initForm() {
     let lightName = '';
-    let lightDescription = '';
 
     if(this.editMode) {
       //edit mode is activated... probably editing an already existing light
@@ -53,13 +52,11 @@ export class RoomLightEditComponent implements OnInit {
           const light = roomState.rooms[this.roomID].lights[this.lightID];
           lightName = light.name;
           this.lightName = lightName;
-          lightDescription = light.description;
         });
     }
 
     this.lightForm = new FormGroup({
       'name': new FormControl(lightName, [Validators.required]),
-      'description': new FormControl(lightDescription, [Validators.required])
     })
   }
 

@@ -12,12 +12,12 @@ export interface State {
 const initialState: State = {
     rooms: [
         new Room('Sample Living Room', [
-            new Light('A sample light', 'This light is to show a sample of how "our product" works', {on: false, brightness: 1}),
-            new Light('A second sample light', 'This second light is to show a sample of how "our product" works', {on: true, brightness: 8})
+            new Light('A sample light',  {on: false, brightness: 1}),
+            new Light('A second sample light', {on: true, brightness: 8})
         ]),
         new Room('Sample Bedroom', [
-            new Light('A third sample light', 'This third light is to show a sample of how "our product" works', {on: false, brightness: 1}),
-            new Light('A fourth sample light', 'This fourth light is to show a sample of how "our product" works', {on: false, brightness: 1})
+            new Light('A third sample light', {on: false, brightness: 1}),
+            new Light('A fourth sample light', {on: false, brightness: 1})
         ]),
     ]
 };
@@ -79,7 +79,7 @@ export function RoomReducer(State = initialState, action: RoomActions.RoomAction
                     rooms: State.rooms.map((room, index) => index === action.payload.roomIndex
                         ? {
                             ...room,
-                            lights: [...room.lights, new Light(action.payload.light.name, action.payload.light.description, {on: false, brightness: 1})]
+                            lights: [...room.lights, new Light(action.payload.light.name, {on: false, brightness: 1})]
                         }
                         :room
                     )

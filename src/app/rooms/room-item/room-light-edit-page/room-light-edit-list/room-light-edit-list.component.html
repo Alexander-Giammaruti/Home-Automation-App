@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-xs-12">
+    <app-room-light-edit-list-item
+      *ngFor="let lightElement of (roomState | async).rooms[index].lights; let i=index;"
+      [light]="lightElement"
+      [index]="i"
+      [roomIndex]="index">
+    </app-room-light-edit-list-item>
+  </div>
+</div>

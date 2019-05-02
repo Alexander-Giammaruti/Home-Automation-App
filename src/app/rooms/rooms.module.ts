@@ -9,13 +9,16 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
 import { RoomItemComponent } from './room-item/room-item.component';
 import { RoomLightListComponent } from './room-item/room-light-list/room-light-list.component';
 import { RoomLightItemComponent } from './room-item/room-light-list/room-light-item/room-light-item.component';
-import { RoomLightEditComponent } from './room-item/room-light-edit/room-light-edit.component';
+import { RoomLightEditComponent } from './room-item/room-light-edit-page/room-light-edit/room-light-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoomEditListComponent } from './room-edit/room-edit-list/room-edit-list.component';
 import { RoomEditListItemComponent } from './room-edit/room-edit-list/room-edit-list-item/room-edit-list-item.component';
 import { RoomEditDetailComponent } from './room-edit/room-edit-detail/room-edit-detail.component';
 import { EffectsModule } from '@ngrx/effects';
 import { RoomEffects } from './store/room.effects';
+import { RoomLightEditPageComponent } from './room-item/room-light-edit-page/room-light-edit-page.component';
+import { RoomLightEditListComponent } from './room-item/room-light-edit-page/room-light-edit-list/room-light-edit-list.component';
+import { RoomLightEditListItemComponent } from './room-item/room-light-edit-page/room-light-edit-list/room-light-edit-list-item/room-light-edit-list-item.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +30,10 @@ import { RoomEffects } from './store/room.effects';
         RoomItemComponent,
         RoomLightListComponent,
         RoomLightItemComponent,
-        RoomLightEditComponent
+        RoomLightEditComponent,
+        RoomLightEditPageComponent,
+        RoomLightEditListComponent,
+        RoomLightEditListItemComponent
     ],
     imports: [ 
         SharedModule,

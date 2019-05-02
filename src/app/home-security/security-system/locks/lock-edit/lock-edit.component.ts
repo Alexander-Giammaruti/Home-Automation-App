@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -11,8 +11,6 @@ import { FormGroup} from '@angular/forms';
 export class LockEditComponent implements OnInit {
   id: number;
   lockForm: FormGroup;
-
-  editMode = false;
 
   constructor() { }
 

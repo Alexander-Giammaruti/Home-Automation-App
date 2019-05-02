@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as fromRoom from '../../store/room.reducers';
-import * as RoomActions from '../../store/room.actions';
+import * as fromRoom from '../../../store/room.reducers';
+import * as RoomActions from '../../../store/room.actions';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
